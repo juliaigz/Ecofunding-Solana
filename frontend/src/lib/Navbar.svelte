@@ -13,7 +13,13 @@
 	let isSideNavOpen = false;
 </script>
 
-<Header expansionBreakpoint={1700} company="Ecofound" platformName="ICP" bind:isSideNavOpen>
+<Header
+	expansionBreakpoint={1700}
+	company="Ecofunding"
+	platformName="SOL"
+	bind:isSideNavOpen
+	ref="/"
+>
 	<svelte:fragment slot="skip-to-content">
 		<SkipToContent />
 	</svelte:fragment>

@@ -9,12 +9,11 @@
 
 <Grid>
 	<Row>
-		<Column id="columna1" style="display: flex; gap: 5%; margin-top: 5%;">
+		<Column style="display: flex; gap: 5%; margin-top: 5%;">
 			<figure>
 				<img src={imgFooterBurbujas} alt="Logo de la Compañia" />
 			</figure>
-
-			<p>Ecofound <strong>ICP</strong></p>
+			<p>Ecofunding <strong>SOL</strong></p>
 		</Column>
 		<Column style="margin-top: 5%;">
 			<ul>
