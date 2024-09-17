@@ -13,6 +13,7 @@
 		Button
 	} from 'carbon-components-svelte';
 	import { UserAvatarFilledAlt, SettingsAdjust, Logout } from 'carbon-icons-svelte';
+	import WalletConnect from '$lib/walletConnect.svelte';
 
 	let isSideNavOpen = false;
 </script>
@@ -36,7 +37,7 @@
 		<!-- <HeaderGlobalAction iconDescription="Settings" tooltipAlignment="start" icon={SettingsAdjust} /> -->
 		<!-- <HeaderGlobalAction iconDescription="Profile" icon={UserAvatarFilledAlt} /> -->
 		<!-- <HeaderGlobalAction iconDescription="Log out" tooltipAlignment="end" icon={Logout} /> -->
-		<Button style="background-color:#59CF8C;">Connect Wallet</Button>
+		<WalletConnect />
 	</HeaderUtilities>
 </Header>
 
