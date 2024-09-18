@@ -3,6 +3,7 @@
 	import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 	import { Connection, clusterApiUrl } from '@solana/web3.js';
 	import { onMount } from 'svelte';
+	import { walletAddress } from '../stores.ts';
 
 	let wallet: PhantomWalletAdapter;
 	let connected = false;
@@ -26,6 +27,7 @@
 			connected = true;
 			// @ts-ignore
 			publicKey = wallet.publicKey?.toString();
+			walletAddress.set(publicKey);
 			console.log('Conectado con la dirección:', publicKey);
 		} catch (error) {
 			console.error('Error al conectar la wallet:', error);
@@ -37,6 +39,8 @@
 			if (wallet.connected) {
 				await wallet.disconnect();
 				connected = false;
+				publicKey = '';
+				walletAddress.set(publicKey);
 				console.log('Wallet desconectada');
 			} else {
 				console.log('La wallet ya está desconectada');
@@ -49,7 +53,7 @@
 
 <!-- Botón para conectar la wallet -->
 
-#{#if connected}
+#{#if connected && publicKey}
 	<Button on:click={disconnectWallet} style="background-color:#59CF8C;">Disconnect Wallet</Button>
 {:else}
 	<Button on:click={connectWallet} style="background-color:#59CF8C;">Connect Wallet</Button>
