@@ -3,6 +3,7 @@
 	import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 	import { Connection, clusterApiUrl } from '@solana/web3.js';
 	import { onMount } from 'svelte';
+	// @ts-ignore
 	import { walletAddress } from '../stores.ts';
 
 	let wallet: PhantomWalletAdapter;
