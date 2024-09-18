@@ -3,58 +3,56 @@
 	import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 	import { Connection, clusterApiUrl } from '@solana/web3.js';
 	import { onMount } from 'svelte';
-	// @ts-ignore
-	import { walletAddress } from '../stores.ts';
+	import { walletAddress } from '../stores'; // Import the walletAddress store
 
 	let wallet: PhantomWalletAdapter;
 	let connected = false;
-	let publicKey = '';
+	let publicKey: string = '';
 
-	// Configuración de la red Solana
-	const endpoint = clusterApiUrl('mainnet-beta'); // Puedes cambiar a 'testnet' o 'devnet'
-	let connection = null;
+	// Solana network configuration
+	const endpoint = clusterApiUrl('mainnet-beta'); // Change to 'testnet' or 'devnet' as needed
+	let connection: Connection;
 
 	onMount(() => {
-		// Inicializar la conexión a Solana y la wallet Phantom
+		// Initialize Solana connection and Phantom wallet
 		connection = new Connection(endpoint);
 		wallet = new PhantomWalletAdapter();
-		console.log(wallet); // Installed | NotDetected | Loadable | Unsupported
+		console.log(wallet); // Log wallet status: Installed | NotDetected | Loadable | Unsupported
 	});
 
-	// Función para conectar la wallet Phantom
+	// Connect to Phantom wallet
 	async function connectWallet() {
 		try {
 			await wallet.connect();
 			connected = true;
-			// @ts-ignore
-			publicKey = wallet.publicKey?.toString();
-			walletAddress.set(publicKey);
-			console.log('Conectado con la dirección:', publicKey);
+			publicKey = wallet.publicKey?.toString() || ''; // Set public key or empty string
+			walletAddress.set(publicKey); // Update store with public key
+			console.log('Connected with address:', publicKey);
 		} catch (error) {
-			console.error('Error al conectar la wallet:', error);
+			console.error('Error connecting wallet:', error);
 		}
 	}
 
+	// Disconnect from Phantom wallet
 	async function disconnectWallet() {
 		try {
 			if (wallet.connected) {
 				await wallet.disconnect();
 				connected = false;
-				publicKey = '';
-				walletAddress.set(publicKey);
-				console.log('Wallet desconectada');
+				publicKey = ''; // Clear public key
+				walletAddress.set(publicKey); // Clear store
+				console.log('Wallet disconnected');
 			} else {
-				console.log('La wallet ya está desconectada');
+				console.log('Wallet is already disconnected');
 			}
 		} catch (error) {
-			console.error('Error al desconectar la wallet:', error);
+			console.error('Error disconnecting wallet:', error);
 		}
 	}
 </script>
 
-<!-- Botón para conectar la wallet -->
-
-#{#if connected && publicKey}
+<!-- Button to connect or disconnect wallet -->
+{#if connected && publicKey}
 	<Button on:click={disconnectWallet} style="background-color:#59CF8C;">Disconnect Wallet</Button>
 {:else}
 	<Button on:click={connectWallet} style="background-color:#59CF8C;">Connect Wallet</Button>
