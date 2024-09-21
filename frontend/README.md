@@ -36,3 +36,7 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+solana-keygen new --outfile ~/.config/solana/keypair.json
+export SOLANA_KEYPAIR_PATH=~/.config/solana/keypair.json
+echo $SOLANA_KEYPAIR_PATH <!-- /home/user/.config/solana/keypair.json -->
