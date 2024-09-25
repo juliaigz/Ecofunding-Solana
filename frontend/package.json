@@ -37,9 +37,11 @@
 	"type": "module",
 	"dependencies": {
 		"@drift-labs/sdk": "^2.96.0-beta.8",
+		"@esbuild-plugins/node-globals-polyfill": "^0.2.3",
 		"@solana/wallet-adapter-base": "^0.9.23",
 		"@solana/wallet-adapter-wallets": "^0.19.32",
-		"@solana/web3.js": "^1.95.3"
+		"@solana/web3.js": "^1.95.3",
+		"buffer": "^6.0.3"
 	},
 	"packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
