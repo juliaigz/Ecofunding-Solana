@@ -1,7 +1,7 @@
 <script>
       import { ProgressIndicator, ProgressStep } from "carbon-components-svelte";
       import { Grid, Row, Column } from "carbon-components-svelte";
-
+      import { TextInput } from "carbon-components-svelte";
 </script>
 
 
@@ -40,7 +40,17 @@
     </Column>
     <Column>
       <div class="setName">
-
+        <div class="inputNameComp">
+           <TextInput
+              labelText="First name"
+              placeholder="First Name"
+            />
+             <TextInput
+              labelText="Last name"
+              placeholder="Last Name"
+            />
+        </div>
+      
       </div>
     </Column>
   </Row>
@@ -62,5 +72,12 @@
 		padding: 10%;
 		width: 100%;
 		height: 90vh;
+  }
+  
+  
+  .inputNameComp{
+    width: 97%;
+    display:inline-flex;
+    gap: 5%;
   }
 </style>
