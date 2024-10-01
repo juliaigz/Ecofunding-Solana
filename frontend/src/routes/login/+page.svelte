@@ -1,0 +1,90 @@
+<script>
+	import LogoEcoFunding from '$lib/images/imgFooterBurbujas.png';
+	import { FluidForm, TextInput, PasswordInput } from 'carbon-components-svelte';
+	import { Button } from 'carbon-components-svelte';
+</script>
+
+<div class="boxPrincipal">
+	<div class="head">
+		<div class="boxImage-head">
+			<img src={LogoEcoFunding} alt="Logo EcoFounding" />
+		</div>
+		<div class="boxText-head">
+			<p>EcoFounding <strong>SOL</strong></p>
+		</div>
+	</div>
+
+	<div class="Login_data">
+		<FluidForm class="FluidForm">
+			<div class="EmailForm">
+				<label for="">Email</label>
+				<TextInput labelText="Insert Email" placeholder="Email" required />
+			</div>
+			<div class="PasswordForm">
+				<label for="">Password</label>
+				<PasswordInput
+					required
+					type="password"
+					labelText="Password"
+					placeholder="Enter password..."
+				/>
+			</div>
+		</FluidForm>
+		<div class="box-Buttons">
+			<Button class="Button" kind="secondary">Log in</Button>
+			<Button class="button-Second" kind="ghost">Sign up</Button>
+			<Button class="button-Second" kind="ghost">Forgot Password</Button>
+		</div>
+	</div>
+</div>
+
+<style>
+	.boxPrincipal {
+		border: 1px solid black;
+		width: 50%;
+		height: 110vh;
+		position: relative;
+		left: 25%;
+		padding: 5%;
+	}
+
+	.head {
+		width: 100%;
+		border: 1px solid red;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.Login_data {
+		margin-top: 15%;
+	}
+
+	:global(.EmailForm) {
+		/* border: 1px solid black; */
+		margin-bottom: 9%;
+	}
+
+
+	.box-Buttons{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.box-Buttons :global(.Button){
+		margin-top: 5%;
+		border-radius: 11px;
+		position: relative;
+		left: 25%;
+	}
+
+	.box-Buttons :global(.button-Second){
+		position: relative;
+		left: 25%;
+	}
+
+
+
+
+
+</style>
