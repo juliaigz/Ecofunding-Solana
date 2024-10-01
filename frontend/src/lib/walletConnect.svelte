@@ -4,6 +4,7 @@
 	import { Connection, clusterApiUrl } from '@solana/web3.js';
 	import { onMount } from 'svelte';
 	import { walletAddress } from '$lib/stores'; // Import the walletAddress store
+	import logoPhantom from '$lib/images/logo_phatom.png';
 
 	let wallet: PhantomWalletAdapter;
 	let connected = false;
@@ -55,5 +56,27 @@
 {#if connected && publicKey}
 	<Button on:click={disconnectWallet} style="background-color:#59CF8C;">Disconnect Wallet</Button>
 {:else}
-	<Button on:click={connectWallet} style="background-color:#59CF8C;">Connect Wallet</Button>
+	<Button on:click={connectWallet} class="buttonConnect">Continue with Phantom <img src={logoPhantom} alt="Icono Phantom wallet"></Button>
 {/if}
+
+
+
+<style>
+
+	:global(.buttonConnect){
+		background-color:#CF9FFF;
+		width: 70%;
+		border-radius: 8%;
+		position: relative;
+		left: 20%;
+	}
+
+	:global(.buttonConnect):hover{
+		background-color:#a473d4d8;
+	}
+
+
+	/* :global(.buttonConnect) img{
+		
+	} */
+</style>

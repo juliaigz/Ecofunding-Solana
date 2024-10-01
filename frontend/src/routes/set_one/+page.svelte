@@ -1,3 +1,29 @@
+<script>
+      import { ProgressIndicator, ProgressStep } from "carbon-components-svelte";
+</script>
 
 
-<h1>Set1</h1>
+
+
+<ProgressIndicator preventChangeOnClick currentIndex={0}>
+    <ProgressStep
+    
+    label="Step 1"
+    description="The progress indicator will listen for clicks on the steps"
+  />
+    <ProgressStep
+      disabled
+      label="Step 2"
+      description="The progress indicator will listen for clicks on the steps"
+    />
+    <ProgressStep
+      disabled
+      label="Step 3"
+      description="The progress indicator will listen for clicks on the steps"
+    />
+    <ProgressStep
+      disabled
+      label="Step 4"
+      description="The progress indicator will listen for clicks on the steps"
+    />
+  </ProgressIndicator>

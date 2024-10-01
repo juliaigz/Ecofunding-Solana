@@ -3,7 +3,7 @@
 </script>
 
 
-<Button class="StartACrowfund">
+<Button class="StartACrowfund" href='/set_one'>
     Start a Crowfund
 </Button>
 
