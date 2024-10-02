@@ -56,25 +56,24 @@
 {#if connected && publicKey}
 	<Button on:click={disconnectWallet} style="background-color:#59CF8C;">Disconnect Wallet</Button>
 {:else}
-	<Button on:click={connectWallet} class="buttonConnect">Continue with Phantom <img src={logoPhantom} alt="Icono Phantom wallet"></Button>
-{/if}
-
-
-
-<style>
-
-	:global(.buttonConnect){
+	<Button
+		on:click={connectWallet}
+		style="
 		background-color:#CF9FFF;
 		width: 70%;
 		border-radius: 8%;
 		position: relative;
-		left: 20%;
-	}
+		left: 25%;
+		padding-left:8%"
+		class="buttonConnect"
+		>Continue with Phantom <img src={logoPhantom} alt="Icono Phantom wallet" /></Button
+	>
+{/if}
 
-	:global(.buttonConnect):hover{
-		background-color:#a473d4d8;
+<style>
+	:global(.buttonConnect):hover {
+		background-color: #a473d4d8;
 	}
-
 
 	/* :global(.buttonConnect) img{
 		
