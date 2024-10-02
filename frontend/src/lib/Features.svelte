@@ -145,7 +145,7 @@
 		width: 22vw;
 		position: relative;
 		left: 43%;
-		bottom: 35%;
+		bottom: 44%;
 	}
 
 	.ImageBox img {

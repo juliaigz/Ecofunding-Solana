@@ -32,7 +32,7 @@
 			</div>
 		</FluidForm>
 		<div class="box-Buttons">
-			<Button class="Button" kind="secondary">Log in</Button>
+			<Button href="/set_one" class="Button" kind="secondary">Log in</Button>
 			<Button class="button-Second" kind="ghost">Sign up</Button>
 			<Button class="button-Second" kind="ghost">Forgot Password</Button>
 		</div>

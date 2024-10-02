@@ -78,7 +78,7 @@
 
             <Button
             class="buttonNext"
-            style="position: relative; left: 25%; padding-left: 25%;  margin-top: 6%;"
+            style="position: relative; left: 25%; padding-left: 10em;   margin-top: 6%;"
             kind="secondary"
             href="/set_four"
         >
@@ -86,7 +86,7 @@
         </Button>
 
         <Button
-            style="position: relative; left: 25%; padding-left: 25%;  margin-top: 1%;"
+            style="position: relative; left: 25%; padding-left: 10em;   margin-top: 1%;"
             kind="ghost"
             href="/set_two"
             >Back</Button
