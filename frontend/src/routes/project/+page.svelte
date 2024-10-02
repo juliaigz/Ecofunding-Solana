@@ -2,9 +2,7 @@
 	import { Search } from 'carbon-components-svelte';
 	import { Grid, Row, Column } from 'carbon-components-svelte';
 	import { NumberInput } from 'carbon-components-svelte';
-	import { Button } from 'carbon-components-svelte';
 	import { Content } from 'carbon-components-svelte';
-	import Add from 'carbon-icons-svelte/lib/Add.svelte';
 	import { ProgressBar } from 'carbon-components-svelte';
 	import { OrderedList, ListItem, Link, UnorderedList } from 'carbon-components-svelte';
 	import { DataTable } from 'carbon-components-svelte';
@@ -14,9 +12,9 @@
 	import ImgLocation from '$lib/images/bxs_map.png';
 	import ElipseSinba from '$lib/images/ElipseSinba.png';
 
-	//Photo gallery for the carousel
-
-	import Sinba1 from '$lib/images/carouselSinba1.jpg';
+	import StartTransaction from '$lib/StartTransaction.svelte';
+	let value = 0;
+	let projectWallet = 'BpvQSKHu7Djos4yufZwtRHa8nufFgksnkG9WnkAf8rHZ';
 </script>
 
 <!-- <main> -->
@@ -143,12 +141,8 @@
 				<div class="box-Ivestement">
 					<div class="Icp-Investment-Fund">
 						<p>Fund this project</p>
-						<NumberInput hideSteppers label="Amount this of SOL" value={0} />
-						<Button
-							icon={Add}
-							style="width: 60%; position: relative; left: 20%; top:1%; background-color:#59CF8C; margin-top: 2%;"
-							>Fund this project</Button
-						>
+						<NumberInput hideSteppers label="Amount this of SOL" bind:value />
+						<StartTransaction amount={value} recipient={projectWallet} />
 					</div>
 				</div>
 

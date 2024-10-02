@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 	import { walletAddress } from '$lib/stores';
 	import { goto } from '$app/navigation';
-	import WalletConnect from './walletConnect.svelte';
+	import Add from 'carbon-icons-svelte/lib/Add.svelte';
 
 	// Props
 	export let recipient: string; // Wallet destino para el SOL
@@ -27,6 +27,7 @@
 		if (walletAddress) {
 			try {
 				// Crear la transacción de transferencia de SOL
+				await wallet.autoConnect();
 				const transaction = new Transaction().add(
 					SystemProgram.transfer({
 						fromPubkey: wallet.publicKey,
@@ -53,5 +54,8 @@
 </script>
 
 <!-- Botón para iniciar la transacción -->
-<Button on:click={startTransaction} style="background-color:#59CF8C;">funded this project</Button>
-<WalletConnect />
+<Button
+	icon={Add}
+	style="width: 60%; position: relative; left: 20%; top:1%; background-color:#59CF8C; margin-top: 2%;"
+	on:click={startTransaction}>Fund this project</Button
+>
