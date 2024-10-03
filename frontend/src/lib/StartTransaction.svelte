@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from 'carbon-components-svelte';
+	import { Button, Modal } from 'carbon-components-svelte';
 	import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 	import { Connection, PublicKey, Transaction, SystemProgram } from '@solana/web3.js';
 	import { onMount } from 'svelte';
@@ -51,11 +51,65 @@
 			goto('/login');
 		}
 	}
+
+
+
+
+
+	let open = false;
+	let stepModal = 1;
+
+	async function nextStep() {
+		stepModal += 1;
+		if(stepModal > 2 || stepModal < 1){
+			open = false;
+			stepModal = 1;
+
+			await startTransaction();
+		}
+	}
+
+	function closeModal(){
+		open = false;
+		stepModal = 1;
+	}
+
+
+
+
+
+
+
+
+
 </script>
 
 <!-- Botón para iniciar la transacción -->
 <Button
 	icon={Add}
 	style="width: 60%; position: relative; left: 20%; top:1%; background-color:#59CF8C; margin-top: 2%;"
-	on:click={startTransaction}>Fund this project</Button
+	on:click={() => (open = true)}>Fund this project</Button
 >
+<!-- <Button on:click={() => (open = true)}>Create database</Button> -->
+
+<Modal
+	bind:open
+	modalHeading={stepModal===1 ? "Confirm swap" : "Swap Details"}
+	primaryButtonText="Confirm"
+	secondaryButtonText="Cancel"
+	on:click:button--primary={nextStep}
+	on:click:button--secondary={closeModal}
+	on:open
+	on:close
+	on:submit
+>
+	{#if stepModal === 1}
+		<p>sd</p>
+		
+	{:else if stepModal === 2}
+		<p>Paso2</p>
+		<!-- {:else  }
+								{() => {closeModal}} -->
+	{/if}
+	
+</Modal>

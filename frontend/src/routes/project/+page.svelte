@@ -15,6 +15,38 @@
 	import StartTransaction from '$lib/StartTransaction.svelte';
 	let value = 0;
 	let projectWallet = 'BpvQSKHu7Djos4yufZwtRHa8nufFgksnkG9WnkAf8rHZ';
+
+	import Carousel from 'svelte-carousel';
+	const images = [
+		{
+			url: 'https://res.cloudinary.com/beswift/image/upload/v1650391490/photo-1644241687200-eadaf7601290_xcz2kh.jpg',
+			description: 'image1'
+		},
+		{
+			url: 'https://res.cloudinary.com/beswift/image/upload/v1650391337/photo-1647067867267-e01d98462f3c_ugtnwe.jpg',
+			description: 'image2'
+		},
+		{
+			url: 'https://res.cloudinary.com/beswift/image/upload/v1650391131/photo-1648800475313-2bb7fbec8701_ae60yw.jpg',
+			description: 'image3'
+		},
+		{
+			url: 'https://res.cloudinary.com/beswift/image/upload/v1650390102/photo-1649894222226-056a1a79d9fb_xlv73h.jpg',
+			description: 'image4'
+		},
+		{
+			url: 'https://res.cloudinary.com/beswift/image/upload/v1650389425/photo-1649894221695-45abb718a190_sgjhwd.jpg',
+			description: 'image5'
+		}
+	];
+	let carousel; // for calling methods of the carousel instance
+	const handleNextClick = () => {
+		carousel.goToNext();
+	};
+
+	let widthWindow;
+
+
 </script>
 
 <!-- <main> -->
@@ -162,12 +194,12 @@
 					</div>
 
 					<div class="Box_Link">
-						<p>Joint the twitter community</p>
+						<p>Join the twitter community</p>
 						<a href="https://x.com/FareaNFts">https://x.com/FareaNFts</a>
 					</div>
 
 					<div class="Box_Link2">
-						<p>Joint the Discord commmunity</p>
+						<p>Join the Discord commmunity</p>
 						<a href="https://discord.gg/xaJhNbRt">https://discord.gg/xaJhNbRt</a>
 					</div>
 				</div>
@@ -175,23 +207,23 @@
 		</Row>
 
 		<!-- Carrosuel of photographs  -->
-		<Row class="carousel">
-			<div class="body">
-				<input type="radio" name="position" checked />
-				<input type="radio" name="position" />
-				<input type="radio" name="position" />
-				<input type="radio" name="position" />
-				<input type="radio" name="position" />
-				<main id="carousel">
-					<div class="item"></div>
-					<div class="item"></div>
-					<div class="item"></div>
-					<div class="item"></div>
-					<div class="item"></div>
-					<main></main>
-				</main>
-			</div>
-		</Row>
+		<Row style="padding:5%">
+			  <Carousel
+				bind:this={carousel}
+				let:loaded
+				autoplay
+				autoplayDuration={3000}
+				autoplayProgressVisible>
+				{#each images as src, imageIndex (src)}
+				  <div class="img-container" style="width: 100vw; height=100vh;">
+					{#if loaded.includes(imageIndex)}
+					  <img src={src.url} alt={src.description} width={1000} height={900}/>
+					{/if}
+				  </div>
+				{/each}
+			  </Carousel>
+		  </Row>
+		
 		<Row>
 			<div class="Row3">
 				<h3>Donors supporting this project</h3>
@@ -367,133 +399,20 @@
 	/*---------- Row for the carousel ------------*/
 	/* -------------------------------------------*/
 
-	:global(.carousel) {
-		/* border: 1px solid black; */
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 0% 25%;
+
+	.boxSecondCarousel{
+		border: 1px solid black;
+		padding: auto;
+		width: 100%;
 	}
 
-	.body {
-		height: 600px;
-		margin: 0;
-		display: grid;
-		grid-template-rows: 500px 100px;
-		grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
-		align-items: center;
-		justify-items: center;
-	}
 
-	main#carousel {
-		grid-row: 1 / 2;
-		grid-column: 1 / 8;
-		width: 100vw;
-		height: 500px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
-		transform-style: preserve-3d;
-		perspective: 600px;
-		--items: 5;
-		--middle: 3;
-		--position: 1;
-		pointer-events: none;
-	}
 
-	div.item {
-		position: absolute;
-		width: 300px;
-		height: 450px;
-		background-color: coral;
-		--r: calc(var(--position) - var(--offset));
-		--abs: max(calc(var(--r) * -1), var(--r));
-		transition: all 0.25s linear;
-		transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
-		z-index: calc((var(--position) - var(--abs)));
-	}
 
-	div.item:nth-of-type(1) {
-		--offset: 1;
-		width: 40%;
-		/* background-color: #90f1ef; */
-		background-image: url('https://cdnespecial.elcomercio.pe/wp-content/uploads/sites/78/2019/04/1722059.jpg');
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
-	div.item:nth-of-type(2) {
-		--offset: 2;
-		width: 40%;
-		background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP_sYlRVxntijnXZwjLlY90XlAgeE6p4Vxxg&s');
-		background-position: center center;
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
-	div.item:nth-of-type(3) {
-		--offset: 3;
-		width: 40%;
-		/* background-color: #ff9770; */
-		background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwhW9K8PUhfwOnosorOtY70rmzVn4eGtLlLQ&s');
-		background-position: center center;
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
-	div.item:nth-of-type(4) {
-		--offset: 4;
-		width: 40%;
-		/* background-color: #ffd670; */
-		background-image: url('https://perunews.com/news/press/wp-content/uploads/2023/10/reciclaje_-480x270.webp');
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
-	div.item:nth-of-type(5) {
-		--offset: 5;
-		width: 40%;
-		background-color: #e9ff70;
-	}
 
-	input:nth-of-type(1) {
-		grid-column: 2 / 3;
-		grid-row: 2 / 3;
-	}
-	input:nth-of-type(1):checked ~ main#carousel {
-		--position: 1;
-	}
 
-	input:nth-of-type(2) {
-		grid-column: 3 / 4;
-		grid-row: 2 / 3;
-	}
-	input:nth-of-type(2):checked ~ main#carousel {
-		--position: 2;
-	}
 
-	input:nth-of-type(3) {
-		grid-column: 4 /5;
-		grid-row: 2 / 3;
-	}
-	input:nth-of-type(3):checked ~ main#carousel {
-		--position: 3;
-	}
 
-	input:nth-of-type(4) {
-		grid-column: 5 / 6;
-		grid-row: 2 / 3;
-	}
-	input:nth-of-type(4):checked ~ main#carousel {
-		--position: 4;
-	}
-
-	input:nth-of-type(5) {
-		grid-column: 6 / 7;
-		grid-row: 2 / 3;
-	}
-	input:nth-of-type(5):checked ~ main#carousel {
-		--position: 5;
-	}
 
 	/** Row Data Wallet */
 
