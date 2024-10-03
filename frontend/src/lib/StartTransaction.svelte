@@ -6,6 +6,10 @@
 	import { walletAddress } from '$lib/stores';
 	import { goto } from '$app/navigation';
 	import Add from 'carbon-icons-svelte/lib/Add.svelte';
+	import iconSolana from '$lib/images/sol.png';
+	import { Grid, Row, Column } from 'carbon-components-svelte';
+	import iconUSDT from '$lib/images/usdt.png';
+	import { Accordion, AccordionItem } from 'carbon-components-svelte';
 
 	// Props
 	export let recipient: string; // Wallet destino para el SOL
@@ -52,16 +56,12 @@
 		}
 	}
 
-
-
-
-
 	let open = false;
 	let stepModal = 1;
 
 	async function nextStep() {
 		stepModal += 1;
-		if(stepModal > 2 || stepModal < 1){
+		if (stepModal > 2 || stepModal < 1) {
 			open = false;
 			stepModal = 1;
 
@@ -69,19 +69,10 @@
 		}
 	}
 
-	function closeModal(){
+	function closeModal() {
 		open = false;
 		stepModal = 1;
 	}
-
-
-
-
-
-
-
-
-
 </script>
 
 <!-- Botón para iniciar la transacción -->
@@ -94,7 +85,7 @@
 
 <Modal
 	bind:open
-	modalHeading={stepModal===1 ? "Confirm swap" : "Swap Details"}
+	modalHeading={stepModal === 1 ? 'Confirm swap' : 'Swap Details'}
 	primaryButtonText="Confirm"
 	secondaryButtonText="Cancel"
 	on:click:button--primary={nextStep}
@@ -104,12 +95,219 @@
 	on:submit
 >
 	{#if stepModal === 1}
-		<p>sd</p>
-		
+		<div class="ImageIcon">
+			<div class="iconSolana">
+				<img src={iconSolana} alt="icon Solana" />
+				<div class="youPay solana">
+					<p>You pay</p>
+					<p>0.01 SOL</p>
+				</div>
+			</div>
+			<div class="iconUSDT">
+				<img src={iconUSDT} alt="Icon USDT" />
+				<div class="youPay">
+					<p>You receive</p>
+					<p>1.55 USDT</p>
+				</div>
+			</div>
+		</div>
+		<Grid>
+			<Row class="Row">
+				<Column>Price</Column>
+				<Column>1 SOL = 155.54 $</Column>
+			</Row>
+			<Row class="Row">
+				<Column>Price impact</Column>
+				<Column>0.00%</Column>
+			</Row>
+			<Row class="Row">
+				<Column>Slippage tolerance</Column>
+				<Column>0.50%</Column>
+			</Row>
+			<Row class="Row">
+				<Column>Minimun received</Column>
+				<Column>1.55 USDT</Column>
+			</Row>
+			<Row class="Row">
+				<Column>Estimated transfer fee for the swap</Column>
+				<Column>0.0001 SOL</Column>
+			</Row>
+			<Row class="Row">
+				<Column></Column>
+				<Column>0.155 USDT</Column>
+			</Row>
+		</Grid>
 	{:else if stepModal === 2}
-		<p>Paso2</p>
-		<!-- {:else  }
-								{() => {closeModal}} -->
+		<div class="DepositSol">
+			<Accordion>
+				<AccordionItem>
+					<svelte:fragment slot="title">
+						<h5>1. Deposit SOL</h5>
+					</svelte:fragment>
+					<div class="DepositBox">
+						<div class="moneda__Amount">
+							<p>Amout</p>
+						</div>
+						<div class="iconAmount">
+							<img src={iconSolana} alt="Icon solana" />
+							<p>0.01 SOL</p>
+						</div>
+					</div>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="title">
+						<h5>2. Swap SOL to USDT</h5>
+					</svelte:fragment>
+					<div class="SwapInfo">
+						<div class="SwapSol">
+							<p>Amout</p>
+							<p>USDT</p>
+						</div>
+						<div class="iconSol_USDT">
+							<div class="imagenUno">
+								<img src={iconSolana} alt="Icon solana" />
+								<p>0.01 SOL</p>
+							</div>
+							<div class="imagenDos">
+								<img src={iconUSDT} alt="Icon USDT" />
+								<p>1.55 USDT</p>
+							</div>
+						</div>
+					</div>
+				</AccordionItem>
+				<AccordionItem>
+					<svelte:fragment slot="title">
+						<h5>3. Transfer USDT</h5>
+					</svelte:fragment>
+					<div class="DepositBox">
+						<div class="monedaUSDT">
+							<p>USDT</p>
+						</div>
+						<div class="TransferUSDT">
+							<img src={iconUSDT} alt="Icon USDT" />
+							<p></p>
+						</div>
+					</div>
+				</AccordionItem>
+			</Accordion>
+		</div>
 	{/if}
-	
 </Modal>
+
+<style>
+	.ImageIcon {
+		background-color: #cccbcb;
+		border-radius: 8px;
+	}
+
+	.iconSolana {
+		display: flex;
+		align-items: center;
+		border-bottom: 2.9px solid black;
+	}
+
+	.iconSolana img {
+		margin-left: 3.7%;
+	}
+
+	.iconUSDT {
+		display: flex;
+		align-items: center;
+	}
+
+	.iconUSDT img {
+		margin-left: 5%;
+	}
+	.youPay {
+		display: flex;
+		flex-direction: column;
+		margin-left: 10%;
+	}
+
+	.solana {
+		margin-left: 8%;
+	}
+
+	.youPay p:nth-child(2) {
+		font-weight: bold;
+		font-size: 2em;
+	}
+
+	/* Swap details */
+
+
+
+
+		/* 1 Deposit SOL */
+	.DepositBox{
+		display: flex;
+		justify-content: space-between;
+	}
+
+
+	.iconAmount{
+		display: flex;
+		align-items: center;
+
+	}
+
+	.iconAmount img{
+		width: 2.2rem;
+	}
+	
+		/* 2 Swap SOL to USDT */
+	
+	.SwapInfo{
+		display: flex;
+		align-items: flex-start;
+	}
+
+
+	.iconSol_USDT{
+		display: flex;
+		flex-direction: column;
+		margin-left: 50%;
+		width: 100%;
+	}
+
+	.iconSol_USDT .imagenUno{
+		display: flex;
+	}
+
+	.iconSol_USDT .imagenUno img{
+		width: 2rem;
+	}
+
+	.iconSol_USDT .imagenDos{
+		display: flex;
+	}
+
+	.iconSol_USDT .imagenDos img{
+		width: 1.7rem;
+	}
+
+
+		/* 3 transfer USDT */
+	.DepositBox{
+		display:flex;
+		align-items: flex-start;
+	}
+
+	.DepositBox .TransferUSDT{
+		margin-left: 80%;
+		display: flex;
+		align-items: center;
+		gap: 5%;
+		
+	}
+
+	.TransferUSDT img{
+		width: 2rem;
+	}
+
+
+	
+	:global(.Row) {
+		margin: 2%;
+	}
+</style>

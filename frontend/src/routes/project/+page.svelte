@@ -19,23 +19,23 @@
 	import Carousel from 'svelte-carousel';
 	const images = [
 		{
-			url: 'https://res.cloudinary.com/beswift/image/upload/v1650391490/photo-1644241687200-eadaf7601290_xcz2kh.jpg',
+			url: 'https://imagenes.elpais.com/resizer/v2/54HMYV77NBHPZO2DB7L625QXQ4.png?auth=02e74b4cfe23dd420c782d47582ca3d99ee8f4c701499b969617018814712d60&width=1960&height=1470&smart=true',
 			description: 'image1'
 		},
 		{
-			url: 'https://res.cloudinary.com/beswift/image/upload/v1650391337/photo-1647067867267-e01d98462f3c_ugtnwe.jpg',
+			url: 'https://lamula.pe/media/uploads/t/525a153cfe972df13e55050a1f82a7d1.jpg',
 			description: 'image2'
 		},
 		{
-			url: 'https://res.cloudinary.com/beswift/image/upload/v1650391131/photo-1648800475313-2bb7fbec8701_ae60yw.jpg',
+			url: 'https://redaccion.lamula.pe/media/uploads/466450a3-e545-4cc7-8a9e-c3e38efb162b.jpg',
 			description: 'image3'
 		},
 		{
-			url: 'https://res.cloudinary.com/beswift/image/upload/v1650390102/photo-1649894222226-056a1a79d9fb_xlv73h.jpg',
+			url: 'https://elcomercio.pe/resizer/v2/V33PE552KJETDJQB26YFQ4F5BA.JPG?auth=9ace7d6156fe6d854b479fccf99b4e370c207850f50db78a9a6a0d9757917afa&width=980&height=528&quality=75&smart=true',
 			description: 'image4'
 		},
 		{
-			url: 'https://res.cloudinary.com/beswift/image/upload/v1650389425/photo-1649894221695-45abb718a190_sgjhwd.jpg',
+			url: 'https://www.researchgate.net/profile/Juan-Durango-Cordero/publication/358593893/figure/fig8/AS:1146254134394881@1650299690059/FigURa-10-Modelo-de-gestion-del-grupo-SiNba-SiNba-2018.png',
 			description: 'image5'
 		}
 	];
@@ -44,7 +44,7 @@
 		carousel.goToNext();
 	};
 
-	let widthWindow;
+	// let widthWindow;
 
 
 </script>
@@ -207,17 +207,18 @@
 		</Row>
 
 		<!-- Carrosuel of photographs  -->
-		<Row style="padding:5%">
+		<Row>
 			  <Carousel
 				bind:this={carousel}
 				let:loaded
 				autoplay
 				autoplayDuration={3000}
-				autoplayProgressVisible>
+				autoplayProgressVisible
+				>
 				{#each images as src, imageIndex (src)}
-				  <div class="img-container" style="width: 100vw; height=100vh;">
+				  <div class="img-container" style="display: flex; justify-content:center; object-fit:cover;">
 					{#if loaded.includes(imageIndex)}
-					  <img src={src.url} alt={src.description} width={1000} height={900}/>
+					  <img src={src.url} alt={src.description} width={850} height={560} style="object-fit:cover;"/>
 					{/if}
 				  </div>
 				{/each}
@@ -399,12 +400,12 @@
 	/*---------- Row for the carousel ------------*/
 	/* -------------------------------------------*/
 
-
+/* 
 	.boxSecondCarousel{
 		border: 1px solid black;
 		padding: auto;
 		width: 100%;
-	}
+	} */
 
 
 
@@ -419,5 +420,6 @@
 	.Row3 {
 		width: 100%;
 		height: 20rem;
+		margin-top: 4em;
 	}
 </style>
