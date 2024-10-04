@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, Modal } from 'carbon-components-svelte';
+	import { Button, Modal, ToastNotification } from 'carbon-components-svelte';
 	import { PhantomWalletAdapter } from '@solana/wallet-adapter-wallets';
 	import { Connection, PublicKey, Transaction, SystemProgram } from '@solana/web3.js';
 	import { onMount } from 'svelte';
@@ -10,6 +10,7 @@
 	import { Grid, Row, Column } from 'carbon-components-svelte';
 	import iconUSDT from '$lib/images/usdt.png';
 	import { Accordion, AccordionItem } from 'carbon-components-svelte';
+	import { fade } from 'svelte/transition';
 
 	// Props
 	export let recipient: string; // Wallet destino para el SOL
@@ -26,6 +27,25 @@
 		wallet = new PhantomWalletAdapter();
 	});
 
+	function getCurrentDate() {
+		const today = new Date(); // Obtener la fecha actual
+		const day = String(today.getDate()).padStart(2, '0'); // Obtener el día y asegurarse de que tenga dos dígitos
+		const month = String(today.getMonth() + 1).padStart(2, '0'); // Obtener el mes (sumar 1 porque los meses comienzan en 0)
+		const year = today.getFullYear(); // Obtener el año
+
+		return `${month}/${day}/${year}`; // Retornar la fecha en el formato deseado
+	}
+
+	function convertSolanaToUSDT(solanaAmount) {
+		// Supongamos que el valor de 1 SOL = 20 USDT (este valor puede variar)
+		const conversionRate = 140; // Valor fijo para la conversión (actualízalo según el mercado)
+
+		// Realizamos la conversión
+		const usdtAmount = solanaAmount * conversionRate;
+
+		return usdtAmount;
+	}
+
 	// Función para iniciar la transacción de SOL
 	async function startTransaction() {
 		if (walletAddress) {
@@ -40,13 +60,33 @@
 					})
 				);
 
+				let headersList = {
+					'Content-Type': 'application/json'
+				};
+
+				const transactionData = JSON.stringify({
+					backer: wallet.publicKey,
+					fecha: getCurrentDate(),
+					solana: amount,
+					usdt: convertSolanaToUSDT(amount)
+				});
+
 				// Enviar la transacción usando Phantom Wallet
 				const signature = await wallet.sendTransaction(transaction, connection);
 				console.log('Firma de la transacción:', signature);
 
 				// Confirmar la transacción
 				const confirmation = await connection.confirmTransaction(signature, 'confirmed');
+
 				console.log('Transacción confirmada:', confirmation);
+				const sendTransactionData = await fetch('http://127.0.0.1:8000/add', {
+					method: 'POST',
+					body: transactionData,
+					headers: headersList
+				});
+				timeout = 6_000;
+				amount = 0;
+				console.log(sendTransactionData);
 			} catch (error) {
 				console.error('Error en la transacción:', error);
 			}
@@ -55,6 +95,8 @@
 			goto('/login');
 		}
 	}
+	let timeout = undefined;
+	$: showNotification = timeout !== undefined;
 
 	let open = false;
 	let stepModal = 1;
@@ -81,7 +123,22 @@
 	style="width: 60%; position: relative; left: 20%; top:1%; background-color:#59CF8C; margin-top: 2%;"
 	on:click={() => (open = true)}>Fund this project</Button
 >
-<!-- <Button on:click={() => (open = true)}>Create database</Button> -->
+
+{#if showNotification}
+	<div transition:fade>
+		<ToastNotification
+			{timeout}
+			kind="success"
+			title="Success Transaction"
+			subtitle="You donated {amount} SOL, equivalent to {convertSolanaToUSDT(amount)} USDT."
+			caption={new Date().toLocaleString()}
+			on:close={(e) => {
+				timeout = undefined;
+				console.log(e.detail.timeout); // true if closed via timeout
+			}}
+		/>
+	</div>
+{/if}
 
 <Modal
 	bind:open
@@ -235,78 +292,68 @@
 
 	/* Swap details */
 
-
-
-
-		/* 1 Deposit SOL */
-	.DepositBox{
+	/* 1 Deposit SOL */
+	.DepositBox {
 		display: flex;
 		justify-content: space-between;
 	}
 
-
-	.iconAmount{
+	.iconAmount {
 		display: flex;
 		align-items: center;
-
 	}
 
-	.iconAmount img{
+	.iconAmount img {
 		width: 2.2rem;
 	}
-	
-		/* 2 Swap SOL to USDT */
-	
-	.SwapInfo{
+
+	/* 2 Swap SOL to USDT */
+
+	.SwapInfo {
 		display: flex;
 		align-items: flex-start;
 	}
 
-
-	.iconSol_USDT{
+	.iconSol_USDT {
 		display: flex;
 		flex-direction: column;
 		margin-left: 50%;
 		width: 100%;
 	}
 
-	.iconSol_USDT .imagenUno{
+	.iconSol_USDT .imagenUno {
 		display: flex;
 	}
 
-	.iconSol_USDT .imagenUno img{
+	.iconSol_USDT .imagenUno img {
 		width: 2rem;
 	}
 
-	.iconSol_USDT .imagenDos{
+	.iconSol_USDT .imagenDos {
 		display: flex;
 	}
 
-	.iconSol_USDT .imagenDos img{
+	.iconSol_USDT .imagenDos img {
 		width: 1.7rem;
 	}
 
-
-		/* 3 transfer USDT */
-	.DepositBox{
-		display:flex;
+	/* 3 transfer USDT */
+	.DepositBox {
+		display: flex;
 		align-items: flex-start;
 	}
 
-	.DepositBox .TransferUSDT{
+	.DepositBox .TransferUSDT {
 		margin-left: 80%;
 		display: flex;
 		align-items: center;
 		gap: 5%;
-		
 	}
 
-	.TransferUSDT img{
+	.TransferUSDT img {
 		width: 2rem;
 	}
 
-
-	
 	:global(.Row) {
 		margin: 2%;
 	}
