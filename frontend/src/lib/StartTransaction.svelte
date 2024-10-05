@@ -171,7 +171,7 @@
 		<Grid>
 			<Row class="Row">
 				<Column>Price</Column>
-				<Column>1 SOL = 155.54 $</Column>
+				<Column>{amount} SOL = 140$</Column>
 			</Row>
 			<Row class="Row">
 				<Column>Price impact</Column>
@@ -191,7 +191,7 @@
 			</Row>
 			<Row class="Row">
 				<Column></Column>
-				<Column>0.155 USDT</Column>
+				<Column>{convertSolanaToUSDT(amount)} USDT</Column>
 			</Row>
 		</Grid>
 	{:else if stepModal === 2}
@@ -207,7 +207,7 @@
 						</div>
 						<div class="iconAmount">
 							<img src={iconSolana} alt="Icon solana" />
-							<p>0.01 SOL</p>
+							<p>{amount} SOL</p>
 						</div>
 					</div>
 				</AccordionItem>
@@ -223,11 +223,11 @@
 						<div class="iconSol_USDT">
 							<div class="imagenUno">
 								<img src={iconSolana} alt="Icon solana" />
-								<p>0.01 SOL</p>
+								<p>{amount} SOL</p>
 							</div>
 							<div class="imagenDos">
 								<img src={iconUSDT} alt="Icon USDT" />
-								<p>1.55 USDT</p>
+								<p>{convertSolanaToUSDT} USDT</p>
 							</div>
 						</div>
 					</div>
