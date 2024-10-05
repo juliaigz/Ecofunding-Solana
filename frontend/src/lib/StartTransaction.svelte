@@ -173,7 +173,7 @@
 		<Grid>
 			<Row class="Row">
 				<Column>Price</Column>
-				<Column>1 SOL = 140$</Column>
+				<Column>1 SOL = {150}$</Column>
 			</Row>
 			<Row class="Row">
 				<Column>Price impact</Column>

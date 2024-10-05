@@ -16,7 +16,7 @@
 	let value = 0;
 	let projectWallet = 'BpvQSKHu7Djos4yufZwtRHa8nufFgksnkG9WnkAf8rHZ';
 
-	import Carousel from 'svelte-carousel';
+	// import Carousel from 'svelte-carousel';
 	const images = [
 		{
 			url: 'https://imagenes.elpais.com/resizer/v2/54HMYV77NBHPZO2DB7L625QXQ4.png?auth=02e74b4cfe23dd420c782d47582ca3d99ee8f4c701499b969617018814712d60&width=1960&height=1470&smart=true',
@@ -45,8 +45,6 @@
 	};
 
 	// let widthWindow;
-
-
 </script>
 
 <!-- <main> -->
@@ -208,7 +206,7 @@
 
 		<!-- Carrosuel of photographs  -->
 		<Row>
-			  <Carousel
+			<!-- <Carousel
 				bind:this={carousel}
 				let:loaded
 				autoplay
@@ -222,9 +220,9 @@
 					{/if}
 				  </div>
 				{/each}
-			  </Carousel>
-		  </Row>
-		
+			  </Carousel> -->
+		</Row>
+
 		<Row>
 			<div class="Row3">
 				<h3>Donors supporting this project</h3>
@@ -400,20 +398,12 @@
 	/*---------- Row for the carousel ------------*/
 	/* -------------------------------------------*/
 
-/* 
+	/* 
 	.boxSecondCarousel{
 		border: 1px solid black;
 		padding: auto;
 		width: 100%;
 	} */
-
-
-
-
-
-
-
-
 
 	/** Row Data Wallet */
 
