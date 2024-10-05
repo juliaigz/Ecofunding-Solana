@@ -183,7 +183,7 @@
 			</Row>
 			<Row class="Row">
 				<Column>Minimun received</Column>
-				<Column>1.55 USDT</Column>
+				<Column>{convertSolanaToUSDT(amount - 0.2)} USDT</Column>
 			</Row>
 			<Row class="Row">
 				<Column>Estimated transfer fee for the swap</Column>
