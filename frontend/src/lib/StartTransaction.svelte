@@ -46,6 +46,8 @@
 		return usdtAmount;
 	}
 
+	const fee = 0.005;
+
 	// Función para iniciar la transacción de SOL
 	async function startTransaction() {
 		if (walletAddress) {
@@ -157,21 +159,21 @@
 				<img src={iconSolana} alt="icon Solana" />
 				<div class="youPay solana">
 					<p>You pay</p>
-					<p>0.01 SOL</p>
+					<p>{amount} SOL</p>
 				</div>
 			</div>
 			<div class="iconUSDT">
 				<img src={iconUSDT} alt="Icon USDT" />
 				<div class="youPay">
 					<p>You receive</p>
-					<p>1.55 USDT</p>
+					<p>{convertSolanaToUSDT(amount)} USDT</p>
 				</div>
 			</div>
 		</div>
 		<Grid>
 			<Row class="Row">
 				<Column>Price</Column>
-				<Column>{amount} SOL = 140$</Column>
+				<Column>1 SOL = 140$</Column>
 			</Row>
 			<Row class="Row">
 				<Column>Price impact</Column>
@@ -183,7 +185,7 @@
 			</Row>
 			<Row class="Row">
 				<Column>Minimun received</Column>
-				<Column>{convertSolanaToUSDT(amount - 0.2)} USDT</Column>
+				<Column>{convertSolanaToUSDT(amount - fee)} USDT</Column>
 			</Row>
 			<Row class="Row">
 				<Column>Estimated transfer fee for the swap</Column>
@@ -227,7 +229,7 @@
 							</div>
 							<div class="imagenDos">
 								<img src={iconUSDT} alt="Icon USDT" />
-								<p>{convertSolanaToUSDT} USDT</p>
+								<p>{convertSolanaToUSDT(amount)} USDT</p>
 							</div>
 						</div>
 					</div>
@@ -242,7 +244,7 @@
 						</div>
 						<div class="TransferUSDT">
 							<img src={iconUSDT} alt="Icon USDT" />
-							<p></p>
+							<p>{convertSolanaToUSDT(amount - fee)}</p>
 						</div>
 					</div>
 				</AccordionItem>
