@@ -30,8 +30,7 @@
 			<div class="Features-Box">
 				<h3>Choose a project</h3>
 				<p>
-					Log in with your ICP wallet and search by category and find an entreperneur to support
-				</p>
+					Log in with your SOLANA wallet and search by category and find an entrepreneur to support				</p>
 			</div>
 
 			<div class="ImageBox">
@@ -49,7 +48,7 @@
 		>
 			<div class="Features-Box">
 				<h3>Make a move</h3>
-				<p>You can help an entrepreneur who helps the environment by pledging your ICP</p>
+				<p>You can help an entrepreneur who helps the environment by donating your SOLANA</p>
 			</div>
 
 			<div class="ImageBox">
@@ -69,10 +68,9 @@
         "
 		>
 			<div class="Features-Box">
-				<h3>Receive the refund</h3>
+				<h3>Join the community</h3>
 				<p>
-					Whe borrowers pay their financing after the agreed period of time, your money will
-					automatically be refunded.
+					Join the community and social networks of the project you donate to so you can track your donation.
 				</p>
 			</div>
 
@@ -90,8 +88,7 @@
 			<div class="Features-Box">
 				<h3>Repeat</h3>
 				<p>
-					When borrowers pay their financing after the agreed period of time, your money will
-					automatically be refunded.
+					You can continue donating other projects or create your own and upload it to the platform to receive donations.
 				</p>
 			</div>
 
