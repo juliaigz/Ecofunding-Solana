@@ -1,5 +1,12 @@
 <script lang="ts">
+	import Hero from '$lib/Hero.svelte';
+	import Features from '$lib/Features.svelte';
+	import { Content } from 'carbon-components-svelte';
+	import Cards from '$lib/Cards.svelte';
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<Content>
+	<Hero />
+	<Features />
+	<Cards />
+</Content>
