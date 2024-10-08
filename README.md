@@ -9,18 +9,21 @@ Environmental projects face significant funding challenges, including:
 
 1. **Lack of Financial Support(For recipients)**:
    
-   -70% of early-stage startups successfully secure funding,
+   -70% of early-stage startups successfully secure funding
+   
    -but only 25% of environmental startups manage to obtain necessary financing during their launch phase.
 
-2. **Volatility of Cryptocurrencies**:
+3. **Volatility of Cryptocurrencies**:
    Cryptocurrencies like Solana (SOL) experience significant volatility. This creates two major challenges:
    
       -For Donors: Many are hesitant to contribute because their crypto assets can fluctuate in value.
+   
       -For Recipients: Projects receiving donations in Solana also face uncertainty. A 1 SOL donation value at ($194) today, might drop to $141 in a month due to market volatility, reducing the funds available for their environmental activities.
 
-3. **Difficulty Converting Crypto to Fiat (For Donors)**:
+4. **Difficulty Converting Crypto to Fiat (For Donors)**:
   
     Donors holding Solana (SOL) or other cryptocurrencies often face challenges when trying to convert their crypto assets into fiat currencies (as chilean or colombian pesos) before making a donation in the real world.
+   
     This process is not only complicated by high fees and long wait times but can also raise tax concerns for some donors. Moreover, depending on local laws, converting crypto to fiat may trigger taxable events, discouraging potential contributors.
 
 
