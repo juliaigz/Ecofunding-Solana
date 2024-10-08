@@ -88,3 +88,4 @@ rustc --version
 - **ReFi**: Regenerative Finance, focused on using financial systems to support sustainability.
 - **Stablecoin**: A type of cryptocurrency with a stable value, like **USDT**, pegged to a fiat currency (e.g., USD).
 - **Crypto-to-fiat conversion**: The process of converting cryptocurrency into traditional money (fiat).
+- **Seamless:** Refers to a smooth, uninterrupted donation experience enabled by blockchain technology, where donors can contribute directly without intermediaries, ensuring transparency and decentralization in the process.
