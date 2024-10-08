@@ -16,9 +16,9 @@ Environmental projects face significant funding challenges, including:
 3. **Volatility of Cryptocurrencies**:
    Cryptocurrencies like Solana (SOL) experience significant volatility. This creates two major challenges:
    
-      -For Donors: Many are hesitant to contribute because their crypto assets can fluctuate in value.
+      -**For Donors:** Many are hesitant to contribute because their crypto assets can fluctuate in value.
    
-      -For Recipients: Projects receiving donations in Solana also face uncertainty. A 1 SOL donation value at ($194) today, might drop to $141 in a month due to market volatility, reducing the funds available for their environmental activities.
+      -**For Recipients:** Projects receiving donations in Solana also face uncertainty. A 1 SOL donation value at ($194) today, might drop to $141 in a month due to market volatility, reducing the funds available for their environmental activities.
 
 4. **Difficulty Converting Crypto to Fiat (For Donors)**:
   
