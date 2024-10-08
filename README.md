@@ -4,7 +4,7 @@
 ## **What is EcoFunding-Solana?** 🤔  
 EcoFunding-Solana is a **blockchain-powered platform** designed to simplify cryptocurrency donations for **environmentally-focused projects**. By leveraging **Solana (SOL)** and converting it instantly into **USDT**, our platform ensures that every donation maintains its value while supporting sustainability. 🌱💚
 
-## **Why EcoFunding-Solana, the problems we help to solve?** 💡  
+## **Why EcoFunding-Solana? the problems we help to solve ** 💡  
 Environmental projects face significant funding challenges, including:
 
 1. **Lack of Financial Support(For recipients)**:
