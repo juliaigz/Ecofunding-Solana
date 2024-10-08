@@ -4,17 +4,22 @@
 ## **What is EcoFunding-Solana?** 🤔  
 EcoFunding-Solana is a **blockchain-powered platform** designed to simplify cryptocurrency donations for **environmentally-focused projects**. By leveraging **Solana (SOL)** and converting it instantly into **USDT**, our platform ensures that every donation maintains its value while supporting sustainability. 🌱💚
 
-## **Why EcoFunding-Solana?** 💡  
+## **Why EcoFunding-Solana, the problems we help to solve?** 💡  
 Environmental projects face significant funding challenges, including:
 
-1. **Ensuring Stable Donations**:  
-   Donations in SOL are automatically converted to **USDT**, protecting funds from crypto market volatility.
-   
-2. **A Seamless Donation Experience**:  
-   Donors can contribute without worrying about complex crypto-to-fiat conversions or tax issues.
-   
-3. **Sustainable Funding**:  
-   Projects receive **predictable, stable funding**, enabling long-term planning and growth.
+1. **1.	Lack of Financial Support**:
+   •	70% of early-stage startups successfully secure funding,
+   •	but only 25% of environmental startups manage to obtain necessary financing during their launch phase.
+
+2. **2.	Volatility of Cryptocurrencies**:
+   Cryptocurrencies like Solana (SOL) experience significant volatility. This creates two major challenges:
+  1.	For Donors: Many are hesitant to contribute because their crypto assets can fluctuate in value. 
+  2.	For Recipients: Projects receiving donations in Solana also face uncertainty. A 1 SOL donation value at ($194) today, might drop to $141 in a month due to market volatility, reducing the funds available for their environmental activities.
+
+3. **2.	Difficulty Converting Crypto to Fiat (For Donors):**:
+    Donors holding Solana (SOL) or other cryptocurrencies often face challenges when trying to convert their crypto assets into fiat currencies (as chilean or colombian pesos) before making a donation in the real world. 
+    This process is not only complicated by high fees and long wait times but can also raise tax concerns for some donors. Moreover, depending on local laws, converting crypto to fiat may trigger taxable events, discouraging potential contributors.
+
 
 ## **How does EcoFunding-Solana work?** 🚀  
 We use **Regenerative Finance (ReFi)** principles to promote environmental impact through **DeFi technology**. Here's how:
@@ -22,11 +27,11 @@ We use **Regenerative Finance (ReFi)** principles to promote environmental impac
 1. **Instant Conversion**:  
    Donations made in Solana (SOL) are immediately converted into **USDT**, ensuring stable value for projects.
    
-2. **Decentralized & Seamless**:  
-   The platform removes traditional financial intermediaries, simplifying the donation process without the need for complex conversions.
+2. **Decentralized & Seamless Donation Experience **:  
+   The platform removes traditional financial intermediaries, simplifying the donation process without worrying about complex crypto-to-fiat conversions or tax issues.
    
 3. **Support Environmental Projects**:  
-   **Stable donations** enable projects to focus on creating positive environmental impact.
+   **Stable donations** enable projects to focus on creating positive environmental impact.  Projects receive **predictable, stable funding**, enabling long-term planning and growth.
 
 ## **The Market Opportunity** 💰  
 There is a significant demand for streamlined crypto donations:
