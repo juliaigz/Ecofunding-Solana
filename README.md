@@ -4,7 +4,7 @@
 ### **Watch our Pitch Video** 🎥  
 Get a quick overview of EcoFunding-Solana by watching our pitch video:
 
-[![EcoFunding-Solana Pitch](https://img.youtube.com/vi/NjXDC0Rdnfc/0.jpg)](https://www.youtube.com/watch?v=NjXDC0Rdnfc)
+[![EcoFunding-Solana Pitch]([https://img.youtube.com/vi/NjXDC0Rdnfc/0.jpg](https://cdn.discordapp.com/attachments/1254919313500930112/1293469773665144872/image.png?ex=67077d19&is=67062b99&hm=cdbcfd1a5b61b2c52d2e6edd67c8108664c1f7483113c096fff0aadec7174891&))](https://www.youtube.com/watch?v=NjXDC0Rdnfc)
 
 ## **What is EcoFunding-Solana?** 🤔  
 EcoFunding-Solana is a **blockchain-powered platform** designed to simplify cryptocurrency donations for **environmentally-focused projects**. By leveraging **Solana (SOL)** and converting it instantly into **USDT**, our platform ensures that every donation maintains its value while supporting sustainability. 🌱💚
